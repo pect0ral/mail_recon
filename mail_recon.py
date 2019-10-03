@@ -12,7 +12,7 @@ _DOMAIN = {
 }
 
 # Proofpoint Regex
-_RE_PROOFPOINT = '^(mx[0-9]-[a-z]{2}[0-9]{1}\.ppe-hosted\.com\.)$'
+_RE_PROOFPOINT = '^(.*\.(?:ppe-hosted|pphosted)\.com\.)$'
 
 # O365 Regex - Less Stringent than PP
 _RE_365 = '^(.*mail\.protection\.outlook\.com\.)$'
