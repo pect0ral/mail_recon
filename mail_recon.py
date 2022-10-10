@@ -33,7 +33,7 @@ else:
     _DOMAIN['name'] = args.domain
 try:
     # Try running through MX Records and add to _DOMAIN
-    answers = dns.resolver.query(args.domain, 'MX')
+    answers = dns.resolver.resolve(args.domain, 'MX')
     for rdata in answers:
         _DOMAIN['mx'].append(rdata.exchange.to_text())
         print('MX for {}'.format(rdata.exchange))
@@ -58,7 +58,7 @@ def check_365(domain):
     try:
         domain_dash = domain.replace('.','-')
         name_365 = '{}.mail.protection.outlook.com'.format(domain_dash)
-        answers = dns.resolver.query(name_365,'A')
+        answers = dns.resolver.resolve(name_365,'A')
         res = []
         for rdata in answers:
             # Append to res - TODO: Remove this step
